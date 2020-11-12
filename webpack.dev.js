@@ -37,6 +37,12 @@ module.exports = merge(common, {
     hot: true,
     port: 8080,
     proxy: {
+      '/upload/*': {
+        target: "https://localhost:5000/upload",
+        changeOrigin: true,
+        pathRewrite: { '^upload': '' },
+        ws: true
+      },
     },
   },
 });

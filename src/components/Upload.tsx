@@ -1,5 +1,5 @@
-import React, {useCallback, useContext, useState} from 'react';
-import {useDropzone} from 'react-dropzone';
+import React, { useCallback, useContext, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 
 import { endpoint, FirebaseClassContext } from './App';
@@ -16,13 +16,12 @@ function Upload(): JSX.Element {
     formData.append(
       'id',
       _firebase.uid()
-    ) 
+    )
     formData.append(
       "file",
-      file,
-      file.name
+      file
     );
-    axios.post(endpoint, formData); 
+    axios.post('http://localhost:5000/upload', formData);
   }
 
   const onDrop = useCallback(([file]) => {
@@ -41,38 +40,38 @@ function Upload(): JSX.Element {
   });
 
   return (
-    <div style={{margin: "1em 1em"}}>
+    <div style={{ margin: "1em 1em" }}>
       <div>
         <form className="form">
-            <div className="input-body">
-              {!file ? (
+          <div className="input-body">
+            {!file ? (
+              <div
+                className="circle-ctn"
+                {...getRootProps({
+                  isDragActive,
+                  isDragAccept,
+                  isDragReject,
+                })}
+              >
+                <input {...getInputProps()} />
                 <div
-                  className="circle-ctn"
-                  {...getRootProps({
-                    isDragActive,
-                    isDragAccept,
-                    isDragReject,
-                  })}
+                  className="box"
+                  style={{
+                    background: isDragActive && "#1b2733",
+                  }}
                 >
-                  <input {...getInputProps()} />
-                  <div
-                    className="box"
-                    style={{
-                      background: isDragActive && "#1b2733",
-                    }}
+                  <p style={{ color: isDragReject && "red" }}
+                    className="circle-text"
                   >
-                    <p style={{ color: isDragReject && "red" }}
-                      className="circle-text"
-                    >
-                      {!isDragActive
-                        ? `Drop Image to Add Picture`
-                        : isDragReject
+                    {!isDragActive
+                      ? `Drop Image to Add Picture`
+                      : isDragReject
                         ? "Ooops upload images only"
                         : "Drop your image here to upload"}
-                    </p>
-                  </div>
+                  </p>
                 </div>
-              ) : (
+              </div>
+            ) : (
                 <div className="img-illustration">
                   <img
                     style={{ filter: "grayscale(80%)" }}
@@ -87,11 +86,11 @@ function Upload(): JSX.Element {
             <button id="button" onClick={(e) => { e.preventDefault(); handleUpload(); }} >
               Upload
             </button>
-           </div>
-         </form>
+          </div>
+        </form>
       </div>
     </div>
-   );
+  );
 }
 
 export default Upload;

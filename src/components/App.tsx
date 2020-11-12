@@ -14,8 +14,8 @@ import './styles/App.scss';
 // If in production, use the environment variable defined as below; otherwise,
 // use the development proxy.
 export const endpoint = process.env.NODE_ENV === 'production'
-                ? 'https://heroku'
-                : 'https://localhost:5000/';
+  ? 'https://heroku'
+  : 'http://localhost:5000/upload';
 
 console.log(endpoint);
 
