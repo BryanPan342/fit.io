@@ -7,6 +7,7 @@ import { _Firebase } from '../utils/firebase';
 import Error from './404';
 import Header from './Header';
 import Home from './Home';
+import Upload from './Upload';
 
 import './styles/App.scss';
 
@@ -55,11 +56,27 @@ export default function App(): JSX.Element {
       <div className="app">
         <Header />
         <Router>
-          <Switch>
+          {/* <Switch>
             <Route exact path="/" render={Home} />
             <Route render={Error} />
-          </Switch>
+          </Switch> */}
         </Router>
+        <div id="homeWrapper">
+          <div id="wrapper">
+            <div id='title'>
+              fit.io
+            </div>
+            <div id='text'>
+              An app created by <a target="_blank" rel="noreferrer" href='https://ashvin.dev/'>
+                Ashvin Nagarajan
+              </a>, <a target="_blank" rel="noreferrer" href='https://bryanpan.co/'>
+                Bryan Pan
+              </a>, and <a target="_blank" rel="noreferrer" href='https://github.com/svathsa/'>
+                Suraj Vathsa</a>.
+            </div>
+            <Upload />
+          </div>
+        </div>
       </div>
     </FirebaseClassContext.Provider>
   );

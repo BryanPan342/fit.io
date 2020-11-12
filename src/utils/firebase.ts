@@ -106,6 +106,10 @@ export class _Firebase {
     return firebase.auth(app).signOut().then(() => this.user = {});
   }
 
+  public uid(): string {
+    return this.auth_user?.uid ?? "Error";
+  }
+
   /**
    * Retrieves the document on a user and perform an operation
    *
