@@ -1,0 +1,17 @@
+#signIn {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+#authWrapper {
+  display: block;
+  padding-top: 5em;
+  position: fixed;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+}
+
+#loading {
+  margin: 1em 1em;
+}
