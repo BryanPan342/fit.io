@@ -16,3 +16,7 @@ dist/
 # Never commit environment variables
 .env
 .export
+
+server/fitio.json
+
+server/__pycache__
