@@ -11,6 +11,14 @@ import Upload from './Upload';
 
 import './styles/App.scss';
 
+// If in production, use the environment variable defined as below; otherwise,
+// use the development proxy.
+export const endpoint = process.env.NODE_ENV === 'production'
+                ? 'https://heroku'
+                : 'https://localhost:5000/';
+
+console.log(endpoint);
+
 export const FirebaseClassContext = createContext(new _Firebase());
 
 export default function App(): JSX.Element {

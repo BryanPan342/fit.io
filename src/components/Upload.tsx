@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import axios from 'axios';
 
-import { FirebaseClassContext } from './App';
+import { endpoint, FirebaseClassContext } from './App';
 import Icon from '../assets/image-icon.png';
 
 import './styles/Upload.scss';
@@ -22,7 +22,7 @@ function Upload(): JSX.Element {
       file,
       file.name
     );
-    axios.post("/upload", formData); 
+    axios.post(endpoint, formData); 
   }
 
   const onDrop = useCallback(([file]) => {
