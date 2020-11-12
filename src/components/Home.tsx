@@ -10,9 +10,13 @@ function Home(): JSX.Element {
           fit.io
         </div>
         <div id='text'>
-          An app created by Ashvin Nagarajan, Bryan Pan, and Suraj Vathsa.
+          An app created by <a target="_blank" rel="noreferrer" href='https://ashvin.dev/'>
+            Ashvin Nagarajan
+          </a>, <a target="_blank" rel="noreferrer" href='https://bryanpan.co/'>
+            Bryan Pan
+          </a>, and <a target="_blank" rel="noreferrer" href='https://github.com/svathsa/'>
+            Suraj Vathsa</a>.
         </div>
-        <button id='button' type='button' onClick={()=>console.log('start')}>Start</button>
       </div>
     </div>
   );
